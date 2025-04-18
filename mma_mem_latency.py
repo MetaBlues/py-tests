@@ -8,8 +8,9 @@ m64n256k16_wgmma_smem_latency = 2 * (64*16+256*16) // 128 # 80 cycle
 m64n256k16_mma_smem_latency = 4 * (32*16+128*16) * 2 // 128 # 160 cycle
 
 # l2 pressure
-l2_throughput_per_cycle = 3942.4 # byte
-l2_throughput_per_sm_cycle = l2_throughput_per_cycle / 132\
+# l2_throughput_per_cycle = 3942.4 # byte # float4
+l2_throughput_per_cycle = 4472.3 # byte # float
+l2_throughput_per_sm_cycle = l2_throughput_per_cycle / 132
 
 # deepgemm fp8
 BLOCK_M = [128, 256]
