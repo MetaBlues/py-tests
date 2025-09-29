@@ -29,5 +29,5 @@ for m in BLOCK_M:
         tiles = (M // m) * (N // n)
         tiles = tiles if tiles < 132 else 132 # TODO: 还是需要了解 gemm pipeline
         fma_cycle = m * n // sm90_fma_half_per_sm_cycle
-        l2_cycle = (m + n) * sizeof_bf16 // (l2_throughput_per_cycle / tiles)
+        l2_cycle = (m + n) * sizeof_bf16 // (l2_throughput_per_cycle / tiles) # TODO: 计算 l2 cache 压力需要考虑 store 吗
         print(f"{m=} {n=} {tiles=} overlap_raito={fma_cycle/l2_cycle:.02f}")
